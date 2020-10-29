@@ -1,0 +1,16 @@
+# Saber_Bot.py
+import os
+
+import discord
+from dotenv import load_dotenv
+
+load_dotenv()
+TOKEN = os.getenv('NzcxNDEyNjA4OTc2MDI3NjY4.X5rv-g.xVbhTsNvNWS0PvsJ5w76iIro3-o')
+
+client = discord.Client()
+
+@client.event
+async def on_ready():
+	print(f'{client.user} is connected to Discord!')
+		
+client.run(TOKEN)

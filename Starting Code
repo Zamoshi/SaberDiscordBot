@@ -12,7 +12,7 @@ client = commands.Bot(command_prefix = '~', case_insensitive=True, intents=inten
 
 @client.event                                                                           #event decorator
 async def on_ready():                                                                   #when bot is ready
-    await client.change_presence(status=discord.Status.online, activity=discord.Game('Type ~botinfo for help!'))                                                      
+    await client.change_presence(status=discord.Status.online, activity=discord.Game('Type ~botinfo for help!'))
     print('Bot is Online')                                                              #print that it is ready to console
 
 @client.event                                                                           #event decorator
@@ -22,7 +22,7 @@ async def on_member_join(member):                                               
 @client.event                                                                           #event decorator
 async def on_member_join(member):                                                       #when member joins
     channel = discord.utils.get(member.guild.channels, name='welcome')                  #look for channel named welcome
-    await channel.send(f"{member.menton} now tell me... are you my master?")            #send message to channel welcome
+    await channel.send(f"{member.mention} now tell me... are you my master?")            #send message to channel welcome
 
 
 @client.event                                                                           #event decorator
@@ -157,4 +157,4 @@ async def botinfo(ctx):                                                         
 
 
 
-client.run('NzcxNDEyNjA4OTc2MDI3NjY4.X5rv-g.zQA7SLziPw1DxDGOjxlmuzx2_pg')   #discord token
+client.run('NzcxNDEyNjA4OTc2MDI3NjY4.X5rv-g.kJstaZrZroDisM3g6StYKhSXQBM')   #discord token

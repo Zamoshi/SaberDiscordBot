@@ -128,7 +128,7 @@ async def help(ctx):                                                            
                                                 "-That's it.",
                                            "Right click on the user's name the click Copy ID"
                                            "Insert the user's DISCORD ID"
-    await ctx.send(embed = embed)
+    await ctx.send(embed = embed)                                                           #sends embeded message
 
 
 

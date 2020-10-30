@@ -1,3 +1,4 @@
 @echo off
-cd OneDrive
-cd Desktop
+cd %userprofile%
+cd downloads
+python -i Saber

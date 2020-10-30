@@ -1,25 +1,38 @@
 #Saber.py
 import discord#imports discord library
+import math
 import random #imports random library
 from discord.ext import commands #pulls commands from discord library
 from random import choice
 
-client = commands.Bot(command_prefix = '~') #instance of bot
+intents = discord.Intents.default()
+intents.members = True
+
+client = commands.Bot(command_prefix = '~', case_insensitive=True, intents=intents) #instance of bot
 
 @client.event                   #event decorator
 async def on_ready():           #when bot is ready
     print('Bot is Online')      #print that it is ready
 
 @client.event                   #event decorator
-async def on_member_join(ctx, member):       #when a member joins the server
-    await member.join(f'{member} now tell me... Are you my master?')    #sends message when person leaves the server
+async def on_member_join(member):       #when a member joins the server
     print(f'{member} now tell me. Are you my master?')      #print string
+
+@client.event
+async def on_member_join(member : user.mention):
+    channel = discord.utils.get(member.guild.channels, name='welcome')
+    await channel.send(f"{member} now tell me... are you my master?")
 
 
 @client.event                   #event decorator
-async def on_member_remove(ctx, member):     #When a member leaves the server
-    await ctx.send(f'{member} was not wothy of being my master.')   #sends message when member leaves the server
-    print(f'{member} was not worthy to be my master.')      #print string
+async def on_member_remove(member):     #When a member leaves the server
+    print(f'{member} was not worthy to be my master...')      #print string
+
+@client.event
+async def on_member_remove(member : user.mention):
+    channel = discord.utils.get(member.guild.channels, name='welcome') # Welcome channel.
+    await channel.send(f"{member} was not worhty to be my master...")
+
 
 
 @client.command(aliases=['IsRemondGay'])
@@ -75,13 +88,57 @@ async def ban(ctx, member : discord.Member, *, reason=None):
 
 @client.command()
 @commands.has_permissions(administrator=True)
-async def unban(ctx, *, member):
+async def pardon(ctx, *, member):
     banned_users = await ctx.guild.bans()
     member_name, member_discriminator = member.split('#')
 
     for ban_entry in banned_users:
-        user = ban_entry.banned_user
+        user = ban_entry.banned_users
 
         if (user.name, user.discriminator) == (member_name, member_discriminator):
             await ctx.guild.unban(user)
             await ctx.send(f'{user.name}#{user.discriminator} has been brought back with the power of the grail.')
+
+@client.command(aliases=['CommandSpell', 'CommandSeal'])
+async def HentaiGame(ctx):
+    embed = discord.Embed(title = "The command seal has responded to your summons...", description =  (random.randint(100000, 350000)), color = (0xC900FF))
+    await ctx.send(embed = embed)
+
+@client.command()
+@commands.has_permissions(administrator=True)
+async def unban(ctx, id: int):
+    user = await client.fetch_user(id)
+    await ctx.guild.unban(user)
+    await ctx.send('The grail has revived the banned user...')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+client.run('NzcxNDEyNjA4OTc2MDI3NjY4.X5rv-g.GWC_KGuODNVf5gW4ATZWgOCZb_U')   #discord token

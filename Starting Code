@@ -157,4 +157,4 @@ async def botinfo(ctx):                                                         
 
 
 
-client.run('NzcxNDEyNjA4OTc2MDI3NjY4.X5rv-g.kJstaZrZroDisM3g6StYKhSXQBM')   #discord token
+client.run('NzcxNDEyNjA4OTc2MDI3NjY4.X5rv-g.sv6DSr-MqnRBe0URGfORwOyn0vw')   #discord token

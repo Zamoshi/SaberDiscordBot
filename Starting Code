@@ -110,29 +110,29 @@ async def unban(ctx, id: int):                                                  
     user = await client.fetch_user(id)                                                      #tells the bot to use the given id
     await ctx.guild.unban(user)                                                             #check to see if the person can be unbanned. if they can, unban them.
     await ctx.send('The grail has revived the banned user...')                              #sends confirmation message
-    
-    
+
+
 @client.command()                                                                           #command instance
 async def help(ctx):                                                                        #defines command help and passes context
-    emebed = discord.Embed(title = "Here's the commands",                                   #embed with 
-                            description = "^help - brings this message up
-                                           ^ban @user and kick @user - kicks and bans the user mentioned respective of the 
-                                           ^unban DISCORD ID - unbans the user using their DISCORD ID. Not their mention or @, but the DISCORD ID (more will be explained down below)
-                                           ^CommandSpell, ^CommandSeal - Both send a random set of 6 digit numbers from 100000 to 350000
-                                           ^clear some number - clears messages sent, default is set at 10, but you can input a number after ^clear to clear a specific amount of messages
-                                           ^8ball - does exactly what it sounds like. ^8ball Is Remond Gay? will generate an 8ball response
-                                           ^ping - sends Pong! and actually sends the bot's ping
-                                           ^IsRemondGay - Yes.
-                                           For the DISCORD ID stuff you need to have developer mode enabled on discord.
-                                                -Under appearence, scroll all the way down and toggle developer mode on
-                                                -That's it.
-                                           Right click on the user's name the click Copy ID
-                                           Insert the user's DISCORD ID"
+    emebed = discord.Embed(title = "Here's the commands",                                   #embed with
+                            description = "^help - brings this message up",
+                                           "^ban @user and kick @user - kicks and bans the user mentioned respective of the command",
+                                           "^unban DISCORD ID - unbans the user using their DISCORD ID. Not their mention or @, but the DISCORD ID (more will be explained down below)",
+                                           "''^CommandSpell, ^CommandSeal - Both send a random set of 6 digit numbers from' '100000' to '350000'",
+                                           "^clear some number - clears messages sent, default is set at 10, but you can input a number after ^clear to clear a specific amount of messages",
+                                           "^'8'ball - does exactly what it sounds like. ^8ball Is Remond Gay? will generate an _8ball response",
+                                           "^ping - sends Pong! and actually sends the bot's ping",
+                                           "^IsRemondGay - Yes.",
+                                           "For the DISCORD ID stuff you need to have developer mode enabled on discord.",
+                                                "-Under appearence, scroll all the way down and toggle developer mode on"
+                                                "-That's it.",
+                                           "Right click on the user's name the click Copy ID"
+                                           "Insert the user's DISCORD ID"
     await ctx.send(embed = embed)
-                                           
-                                     
-                                              
-                                          
+
+
+
+
 
 
 

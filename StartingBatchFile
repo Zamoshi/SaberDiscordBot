@@ -1,4 +1,6 @@
 @echo off
 cd %userprofile%
 cd downloads
-python -i Saber
+cd SaberDiscordBot-main.zip
+cd SaberDiscordBot-main
+python -i Saber.py
